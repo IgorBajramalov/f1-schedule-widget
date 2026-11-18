@@ -251,9 +251,6 @@ function startCountdown(race) {
   timerInterval = setInterval(update, 1000);
 }
 
-// Запуск при открытии
-loadNextRace();
-
 // Временный блок для получения ключа без привязки к IP
 setTimeout(() => {
   const params = new URLSearchParams(window.location.search);
@@ -279,3 +276,6 @@ setTimeout(() => {
     document.body.appendChild(btn);
   }
 }, 1000);
+
+// Запуск при открытии
+loadNextRace();
