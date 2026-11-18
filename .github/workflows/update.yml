@@ -1,0 +1,25 @@
+name: Update VK F1 Widget
+
+on:
+  schedule:
+    # Запуск в начале каждого часа по UTC
+    - cron: '0 * * * *'
+  workflow_dispatch: # Позволяет запустить вручную кнопкой Run workflow
+
+jobs:
+  update-widget:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run widget update script
+        env:
+          VK_COMMUNITY_TOKEN: ${{ secrets.VK_COMMUNITY_TOKEN }}
+          VK_APP_ID: ${{ secrets.VK_APP_ID }}
+        run: node update-widget.js
