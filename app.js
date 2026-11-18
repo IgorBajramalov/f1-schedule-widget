@@ -251,25 +251,5 @@ function startCountdown(race) {
   timerInterval = setInterval(update, 1000);
 }
 
-// Временный блок для получения ключа без привязки к IP
-setTimeout(() => {
-  const btn = document.createElement('button');
-  btn.innerText = '🔑 Получить ключ для стены (нажми один раз)';
-  btn.style.cssText = 'position:fixed;top:10px;left:10px;right:10px;z-index:9999;padding:15px;background:#e10600;color:#fff;font-weight:bold;border:none;border-radius:8px;font-size:16px;cursor:pointer;';
-  btn.onclick = () => {
-    vkBridge.send('VKWebAppGetCommunityToken', {
-      app_id: 54906909,
-      group_id: 242412762,
-      scope: 'app_widget'
-    }).then((data) => {
-      btn.remove();
-      document.body.innerHTML = `<div style="padding:20px;background:#111;color:#0f0;word-break:break-all;font-family:monospace;font-size:14px;">✅ Готово! Скопируй весь зелёный текст ниже:<br><br><textarea style="width:100%;height:150px;background:#000;color:#0f0;border:1px solid #0f0;padding:10px;">${data.access_token}</textarea></div>`;
-    }).catch((err) => {
-      alert('Ошибка: ' + JSON.stringify(err));
-    });
-  };
-  document.body.appendChild(btn);
-}, 1000);
-
 // Запуск при открытии
 loadNextRace();
