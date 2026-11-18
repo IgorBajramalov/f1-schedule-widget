@@ -1,0 +1,292 @@
+:root {
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-subtle: #ebedf0;
+  --text-primary: #1c1d1f;
+  --text-secondary: #6d7885;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --accent-red: #e10600;
+  --accent-red-soft: rgba(225, 6, 0, 0.1);
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Тёмная тема (активируется автоматически через VK Bridge или настройки системы) */
+body.dark-theme {
+  --bg-page: #141414;
+  --bg-card: #1f1f22;
+  --bg-subtle: #2c2d30;
+  --text-primary: #e1e3e6;
+  --text-secondary: #828a99;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --accent-red: #ff2a24;
+  --accent-red-soft: rgba(255, 42, 36, 0.15);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  padding: 12px;
+}
+
+.app-container {
+  max-width: 540px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Шапка */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: var(--accent-red);
+  background: var(--accent-red-soft);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.tz-switcher {
+  display: flex;
+  background: var(--bg-subtle);
+  padding: 2px;
+  border-radius: 8px;
+}
+
+.tz-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tz-btn.active {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* Инфо об этапе */
+.gp-info {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--accent-red);
+}
+
+.gp-round {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.gp-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-bottom: 2px;
+}
+
+.gp-subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Таймер */
+.countdown-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 14px 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.countdown-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.time-box {
+  background: var(--bg-subtle);
+  border-radius: 10px;
+  padding: 8px 10px;
+  min-width: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-val {
+  font-size: 22px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.time-unit {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.time-sep {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  padding-bottom: 14px;
+}
+
+.status-banner {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-red);
+  padding: 8px;
+  background: var(--accent-red-soft);
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Расписание */
+.schedule-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tz-hint {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.sessions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.session-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--bg-page);
+  border: 1px solid transparent;
+  transition: opacity 0.2s;
+}
+
+.session-row.past {
+  opacity: 0.45;
+}
+
+.session-row.next {
+  border-color: var(--accent-red);
+  background: var(--accent-red-soft);
+}
+
+.session-row.race-main .session-name {
+  font-weight: 800;
+}
+
+.session-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.session-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.session-badge-next {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent-red);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.session-right {
+  text-align: right;
+}
+
+.session-time {
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.session-date {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.loader {
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.footer {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-secondary);
+  padding-top: 2px;
+}

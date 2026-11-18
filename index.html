@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Расписание Формулы-1</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Подключаем официальный VK Bridge -->
+  <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Шапка с выбором часового пояса -->
+    <header class="header">
+      <div class="badge">БЛИЖАЙШИЙ ЭТАП</div>
+      <div class="tz-switcher" role="group" aria-label="Выбор часового пояса">
+        <button id="btn-local" class="tz-btn active" type="button">Моё время</button>
+        <button id="btn-msk" class="tz-btn" type="button">МСК</button>
+      </div>
+    </header>
+
+    <!-- Информация о Гран-при -->
+    <section class="gp-info">
+      <div id="gp-round" class="gp-round">Загрузка этапа...</div>
+      <h1 id="gp-name" class="gp-title">Формула-1</h1>
+      <div id="gp-circuit" class="gp-subtitle">—</div>
+    </section>
+
+    <!-- Блок обратного отсчёта -->
+    <section class="countdown-card">
+      <div id="countdown-label" class="countdown-label">До старта гонки</div>
+      <div id="countdown-grid" class="countdown-grid">
+        <div class="time-box">
+          <span id="cd-days" class="time-val">00</span>
+          <span class="time-unit">дн</span>
+        </div>
+        <div class="time-sep">:</div>
+        <div class="time-box">
+          <span id="cd-hours" class="time-val">00</span>
+          <span class="time-unit">ч</span>
+        </div>
+        <div class="time-sep">:</div>
+        <div class="time-box">
+          <span id="cd-mins" class="time-val">00</span>
+          <span class="time-unit">мин</span>
+        </div>
+        <div class="time-sep">:</div>
+        <div class="time-box">
+          <span id="cd-secs" class="time-val">00</span>
+          <span class="time-unit">сек</span>
+        </div>
+      </div>
+      <div id="race-status-banner" class="status-banner hidden"></div>
+    </section>
+
+    <!-- Список сессий уик-энда -->
+    <section class="schedule-section">
+      <div class="schedule-header">
+        <span>Расписание уик-энда</span>
+        <span id="tz-label" class="tz-hint">Местное время</span>
+      </div>
+      <div id="sessions-list" class="sessions-list">
+        <div class="loader">Получаем актуальное расписание...</div>
+      </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+      <span id="data-source">Данные: Jolpica F1 API</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
